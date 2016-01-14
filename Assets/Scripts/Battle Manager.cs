@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System; //Allows us to catch exception
 using System.Collections;
 
 public class BattleManager: MonoBehaviour {
@@ -23,9 +24,6 @@ public class BattleManager: MonoBehaviour {
 	private AudioSource bgBoss;
 
 	//Our Sounds
-
-	//Array of things to say once you die
-	String[] epitaph = {"Even the mighty fall", "Not even heroes live forever", "Legends are never forgotten"};
 
 	//TODO: Get our character Save Manager to get stats and things
 
