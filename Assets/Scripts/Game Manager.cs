@@ -40,7 +40,7 @@ class CharRequire {
 
 
 //Class for creating Game Items
-class UseableItem {
+public class UseableItem {
 
 	//Our Items
 	private String name;
@@ -50,5 +50,5 @@ class UseableItem {
 
 
 	//Constructor
-	public GameItem(String name, )
+	//public GameItem(String name, )
 }
