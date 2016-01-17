@@ -39,10 +39,16 @@ public class BattleManager: MonoBehaviour {
         specialButton = GameObject.Find("Special Button").GetComponent<UnityEngine.UI.Button>();
         itemsButton = GameObject.Find("Items Button").GetComponent<UnityEngine.UI.Button>();
         runButton = GameObject.Find("Run Button").GetComponent<UnityEngine.UI.Button>();
+
+		//Use a service or pass Params with Scene Call
+		//To set the world index, and grab the story text
+		//For now we will use 1
     }
 	
 	// Update is called once per frame
+	/*
 	void Update () {
 	
 	}
+	*/
 }

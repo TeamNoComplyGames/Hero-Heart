@@ -24,4 +24,31 @@ public static class GameManager {
 		"CRACK", "BODIED", "OOOF", "SMACK", "CLINK", "SLAP", "THUD",
 		"THUMP", "THWACK", "ZING", "ZAP", "SQUISH", "CLANK"};
 
+	//Static Array for storing purchasable items
+
+
+	//Static Array for storing character items
+
+
+}
+
+//Class for storing requirements on an item or equipment
+class CharRequire {
+
+	//Our stats
+}
+
+
+//Class for creating Game Items
+class UseableItem {
+
+	//Our Items
+	private String name;
+	private String shopText;
+	private int shopCost;
+
+
+
+	//Constructor
+	public GameItem(String name, )
 }
