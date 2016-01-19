@@ -18,66 +18,96 @@ public static class CharacterManager {
 }
 
 [System.Serializable]
-class PlayerSave
+class PlayerChar
 {
-	//our level
-	int level;
-	//our score
-	int score;
-	//Our map index
-	int mapIndex;
-	//our character index
-	int charIndex;
+	
+	//General Character Attributes
+	//Our Character name
+	private string name;
+	//Our Character Gender
+	private string gender;
+	//Our character class
+	private string className;
+	//Our Character Model
+	private SpriteRenderer sprite;
+
+
+	//Our current Money
+	private int money;
+	//Our arraylist of items
+	private ArrayList items = new ArrayList();
+	//Our arraylist of equipment
+	private ArrayList equip = new ArrayList();
+
+	//Our Current Equipped Items
+	//Head
+	private GameItem head;
+	//Torso
+	private GameItem torso;
+	//Legs
+	private GameItem pants;
+	//Shoes
+	private GameItem feet;
+	//Weapon
+	private GameItem weapon;
+
+	//Our Character Stats
+	//Health
+	private int hp;
+	//Strength
+	private int strength;
+	//Intelligence
+	private int intelligence;
+	//Dexterity
+	private int dexterity;
+
+	//Levling
+	//Character Level
+	private int charLevel;
+	//Experience Points
+	private int exp;
+	//Available Skill Points
+	private int skillPoints;
+
+
+	//Game Stats
+	//Battle Wins
+	private int battleWins;
+	//Battle Losses
+	private int battleLosses;
+	//Game Score
+	//TODO: Make a function that calculates Score
 
 	//our constructor
-	public PlayerSave()
+	public PlayerChar(string charName, string charGender, string charClass, SpriteRenderer charSprite)
 	{
-		level = 0;
-		score = 0;
-		mapIndex = 0;
-		charIndex = 0;
-	}
+		//First set our input variables
+		name = charName;
+		gender = charGender;
+		className = charClass;
+		sprite = charSprite;
 
-	//Set and get methods
-	public void setLevel(int lvl)
-	{
-		level = lvl;
-	}
+		//Set money to 25 guaps
+		money = 25;
+		//Give the player a water
+		items.Add(GameManager.gameItems[0]);
+		//Dont Give the character any equipment
 
-	public int getLevel()
-	{
-		return level;
-	}
+		//Give the player baby equipment
+		head = GameManager.headEquip[0];
+		torso = GameManager.torsoEquip [0];
+		pants = GameManager.legEquip [0];
+		feet = GameManager.feetEquip [0];
+		weapon = GameManager.weaponEquip [0];
 
-	public void setScore(int s)
-	{
-		score = s;
-	}
+		//Set the character leveling
+		charLevel = 1;
+		exp = 0;
+		skillPoints = 5;
 
-	public int getScore()
-	{
-		return score;
+		//Set game stats
+		battleWins = 0;
+		battleLosses = 0;
 	}
-
-	public void setMapIndex(int i)
-	{
-		mapIndex = i;
-	}
-
-	public int getMapIndex()
-	{
-		return mapIndex;
-	}
-
-	public void setCharIndex(int i)
-	{
-		charIndex = i;
-	}
-
-	public int getCharIndex()
-	{
-		return charIndex;
-	}
-
 
 }
