@@ -235,18 +235,17 @@ public class GameItem {
 	}
 
 
-	//use an item, insert the characters current stats, and returns an array of upgraded stats
-	public int[] useItem(int hp, int strength, int intelligence, int dexterity) {
+	//use an item, insert the characters current stats in an array [hp, str, int, dex], and returns an array of upgraded stats
+	public int[] useItem(int[] stats) {
 
 		//Add the variables to the item properties
-		hp = hp + hpUp;
-		strength = strength + strengthUp;
-		intelligence = intelligence + intelligenceUp;
-		dexterity = dexterity + dexterityUp;
+		stats[0] = stats[0] + hpUp;
+		stats[1] = stats[1] + strengthUp;
+		stats[2] = stats[2] + intelligenceUp;
+		stats[3] = stats[3] + dexterityUp;
 
-		//Return the variables
-		int[] itemStats = {hp, strength, intelligence, dexterity};
-		return itemStats;
+		//Return the array
+		return stats;
 	}
 
 }

@@ -6,14 +6,35 @@ using System.IO;
 
 public static class CharacterManager {
 
-	// Use this for initialization
-	void Start () {
-	
+	//Our Character
+	public static PlayerChar player = new PlayerChar();
+
+	//load our character
+	public static void loadChar()
+	{
+		if(File.Exists(Application.persistentDataPath + "/nocomply.heart")) {
+			BinaryFormatter bf = new BinaryFormatter();
+			FileStream file = File.Open(Application.persistentDataPath + "/nocomply.heart", FileMode.Open);
+			player = (PlayerChar)bf.Deserialize(file);
+			file.Close();
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	//save our file
+	public static void saveChar() {
+		BinaryFormatter bf = new BinaryFormatter();
+		FileStream file = File.Create (Application.persistentDataPath + "/nocomply.heart");
+		bf.Serialize(file, player);
+		file.Close();
+	}
+
+
+
+	//Place all character editing functions here
+
+	//Return an array of calculated character stats
+	public int[] getCharStats() {
+		return player.getStats ();
 	}
 }
 
@@ -45,7 +66,7 @@ class PlayerChar
 	//Torso
 	private GameItem torso;
 	//Legs
-	private GameItem pants;
+	private GameItem legs;
 	//Shoes
 	private GameItem feet;
 	//Weapon
@@ -96,7 +117,7 @@ class PlayerChar
 		//Give the player baby equipment
 		head = GameManager.headEquip[0];
 		torso = GameManager.torsoEquip [0];
-		pants = GameManager.legEquip [0];
+		legs = GameManager.legEquip [0];
 		feet = GameManager.feetEquip [0];
 		weapon = GameManager.weaponEquip [0];
 
@@ -108,6 +129,22 @@ class PlayerChar
 		//Set game stats
 		battleWins = 0;
 		battleLosses = 0;
+	}
+
+
+	//Character editing functions, return to the manager
+	public int[] getStats() {
+
+		//Need to add our stats to our equipment
+		//Our Current Stats
+		int[] playerStats = {hp, strength, intelligence, dexterity};
+
+		//Using our equipment
+		playerStats = head.useItem(playerStats);
+		playerStats = torso.useItem (playerStats);
+		playerStats = legs.useItem (playerStats);
+		playerStats = feet.useItem (playerStats);
+
 	}
 
 }
