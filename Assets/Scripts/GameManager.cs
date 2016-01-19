@@ -13,7 +13,9 @@ public static class GameManager {
 		"Gligan The Sharp", "Cracked Skull",  "Legs The Clown", "Goblin Scavenger",  "Lizaroni", "Dark Wizard"};
 
 	//Array for Monster Sayings
-	public static String[] enemyTalk = {""};
+	public static String[] enemyTalk = {
+		"Hmmm, a villager? From this small town? Ha! I'll take you out myself! You won't even be a problem to our plans!"
+	};
 
 	//Array for enemy levels per level
 	public static int[] enemyLevels = {1, 1, 2, 2, 4, 4, 5, 6, 7, 9};
@@ -121,28 +123,21 @@ public class CharRequire {
 	private int dexterityReq;
 
 	//Contructors, shall be overloaded similar to usable items
-	public CharRequire() {
-
-		//Simply overload
-		CharRequire(0, 0, 0, 0);
+	public CharRequire() 
+		:this(0, 0, 0, 0) {
 	}
 
-	public CharRequire(int hp) {
-
-		//Simply overload
-		CharRequire(hp, 0, 0, 0);
+	public CharRequire(int hp) 
+		:this(hp, 0, 0, 0) {
 	}
 
-	public CharRequire(int hp, int strength) {
+	public CharRequire(int hp, int strength) 
+		:this(hp, strength, 0, 0) {
 
-		//Simply overload
-		CharRequire(hp, strength, 0, 0);
 	}
 
-	public CharRequire(int hp, int strength, int intelligence) {
-
-		//Simply overload
-		CharRequire(hp, strength, intelligence, 0);
+	public CharRequire(int hp, int strength, int intelligence)
+		:this(hp, strength, intelligence, 0) {
 	}
 
 	public CharRequire(int hp, int strength, int intelligence, int dexterity) {
@@ -187,28 +182,20 @@ public class GameItem {
 
 
 	//Constructors, Overloading them based on their requirements
-	public GameItem(String itemName, String text, int cost, CharRequire required) {
-
-		//simply overload
-		GameItem(itemName, text, cost, required, 0, 0, 0, 0);
+	public GameItem(String itemName, String text, int cost, CharRequire required)
+		:this(itemName, text, cost, required, 0, 0, 0, 0) {
 	}
 
-	public GameItem(String itemName, String text, int cost, CharRequire required, int hp) {
-
-		//simply overload
-		GameItem(itemName, text, cost, required, hp, 0, 0, 0);
+	public GameItem(String itemName, String text, int cost, CharRequire required, int hp)
+		:this (itemName, text, cost, required, hp, 0, 0, 0) {
 	}
 
-	public GameItem(String itemName, String text, int cost, CharRequire required, int hp, int strength) {
-
-		//simply overload
-		GameItem(itemName, text, cost, required, hp, strength, 0, 0);
+	public GameItem(String itemName, String text, int cost, CharRequire required, int hp, int strength)
+		:this(itemName, text, cost, required, hp, strength, 0, 0) {
 	}
 
-	public GameItem(String itemName, String text, int cost, CharRequire required, int hp, int strength, int intelligence) {
-
-		//simply overload
-		GameItem(itemName, text, cost, required, hp, strength, intelligence, 0);
+	public GameItem(String itemName, String text, int cost, CharRequire required, int hp, int strength, int intelligence)
+		:this(itemName, text, cost, required, hp, strength, intelligence, 0) {
 	}
 
 	//Final Constructor, set our variables here

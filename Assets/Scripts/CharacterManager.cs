@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary; 
 using System.IO;
 
-public static class CharacterManager {
+public class CharacterManager {
 
-	//Our Character
-	public static PlayerChar player = new PlayerChar();
+	//Our Character, initialize as blank character
+	private PlayerChar player = new PlayerChar("Blank", "Male", "Warrior", null);
 
 	//load our character
-	public static void loadChar()
+	public void loadChar()
 	{
 		if(File.Exists(Application.persistentDataPath + "/nocomply.heart")) {
 			BinaryFormatter bf = new BinaryFormatter();
@@ -21,7 +21,7 @@ public static class CharacterManager {
 	}
 
 	//save our file
-	public static void saveChar() {
+	public void saveChar() {
 		BinaryFormatter bf = new BinaryFormatter();
 		FileStream file = File.Create (Application.persistentDataPath + "/nocomply.heart");
 		bf.Serialize(file, player);
@@ -39,7 +39,7 @@ public static class CharacterManager {
 }
 
 [System.Serializable]
-class PlayerChar
+public class PlayerChar
 {
 	
 	//General Character Attributes
@@ -144,6 +144,9 @@ class PlayerChar
 		playerStats = torso.useItem (playerStats);
 		playerStats = legs.useItem (playerStats);
 		playerStats = feet.useItem (playerStats);
+
+		//return the stats
+		return playerStats;
 
 	}
 

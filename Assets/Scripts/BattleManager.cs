@@ -25,11 +25,20 @@ public class BattleManager: MonoBehaviour {
 
 	//Our Sounds
 
-	//TODO: Get our character Save Manager to get stats and things
+	//Get our Character Manager and our character stats
+	CharacterManager player = new CharacterManager();
+	int playerHp;
+	int playerStrength;
+	int playerIntelligence;
+	int playerDexterity;
 
 
 	// Use this for initialization
 	void Start () {
+
+		//Things To Do:
+		//Get the player character
+		//find else what to do from the oncreate function on the og repo
 
         //Get the Battle Text
         battleText = GameObject.FindGameObjectWithTag("BattleText").GetComponent<UnityEngine.UI.Text>();
@@ -42,7 +51,9 @@ public class BattleManager: MonoBehaviour {
 
 		//Use a service or pass Params with Scene Call
 		//To set the world index, and grab the story text
-		//For now we will use 1
+		//For now we will use 0
+		battleText.text = GameManager.enemyTalk[0];
+
     }
 	
 	// Update is called once per frame
